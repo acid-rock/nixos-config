@@ -205,7 +205,7 @@
 		-- ─────────────────────────────────────────────
 		-- LSP
 		-- ─────────────────────────────────────────────
-		vim.api.nvim_create_autocmd("LspAttach, {
+		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(event)
 				local opts = { buffer = event.buf }
 
@@ -224,7 +224,7 @@
 		})
 
 		-- Native LSP config
-		vim.lsp.config("lua_ls_, {
+		vim.lsp.config("lua_ls", {
 			cmd = { "lua-language-server" },
 			filetypes = { "lua" },
 		})
