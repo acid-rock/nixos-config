@@ -111,13 +111,18 @@
       push.autoSetupRemote = true;
       rerere.enabled = true;
 
+      user.name= "acid-rock";
+      user.email = "138583992+acid-rock@users.noreply.github.com";
+
       core.pager = "delta";
 
 			delta = {
 				navigate = true;
 				side-by-side = true;
 			};
+
     };
+
   };
 
   programs.delta = {
@@ -210,7 +215,7 @@
 
       		-- Miscellaneous
       		vim.keymap.set("n", "<C-a>", "gg<S-v>G")
-      		vim.keymap.set("n", "<leader>pv>", vim.cmd.Ex)
+      		vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
       		-- ─────────────────────────────────────────────
       		-- LSP
