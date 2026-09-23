@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ... }:
 
 {
   home.username = "zee";
@@ -14,7 +14,6 @@
     git
     gh
     git-lfs
-    delta
 
     curl
     wget
@@ -31,7 +30,6 @@
     yq
     unzip
     zip
-    delta
 
     # ─────────────────────────────────────────────
     # C / C++
@@ -100,6 +98,7 @@
     # ─────────────────────────────────────────────
 
     librewolf
+
   ];
 
   programs.git = {
@@ -274,4 +273,27 @@
       		})
     '';
   };
+
+	programs.ghostty = {
+		enable = true;
+
+		enableFishIntegration = true;
+
+		settings = {
+			command = "${pkgs.fish}/bin/fish";
+			font-size = 12;
+
+			window-padding-x = 0;
+			window-padding-y = 0;
+
+			window-padding-color = "extend";
+
+			window-decoration = "server";
+
+			cursor-style = "block";
+			shell-integration-features = "no-cursor";
+
+			confirm-close-surface = false;
+		};
+	};
 }
