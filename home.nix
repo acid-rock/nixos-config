@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.username = "zee";
@@ -116,6 +116,7 @@
     # ─────────────────────────────────────────────
 
     librewolf
+		inputs.zen-browser.packages."${pkgs.system}".default
 
   ];
 
@@ -310,7 +311,7 @@
 
 		settings = {
 			command = "${pkgs.fish}/bin/fish";
-			font-size = 12;
+			font-size = 9;
 
 			window-padding-x = 0;
 			window-padding-y = 0;
