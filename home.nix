@@ -4,9 +4,20 @@
   home.username = "zee";
   home.homeDirectory = "/home/zee";
 
+	home.sessionPath = [
+		"/home/zee/.local/bin"	
+	];
+
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
+    # ─────────────────────────────────────────────
+    # Miscellaneous
+    # ─────────────────────────────────────────────
+
+		ytfzf
+		vlc
+
     # ─────────────────────────────────────────────
     # Core CLI
     # ─────────────────────────────────────────────
@@ -131,6 +142,11 @@
 
   programs.fish = {
     enable = true;
+
+		shellInit = ''
+			fish_add_path /home/zee/.local/bin
+		'';
+
     shellAliases = {
       ll = "eza -lah";
       la = "eza -la";
@@ -271,6 +287,12 @@
       			update_in_insert = false,
       			severity_sort = true,
       		})
+
+      		-- ─────────────────────────────────────────────
+      		-- BG Transparent
+      		-- ─────────────────────────────────────────────
+
+					vim.api.nvim_set_hl(0, "Normal", {bg="NONE", ctermbg="NONE"})
     '';
   };
 
@@ -289,6 +311,9 @@
 			window-padding-color = "extend";
 
 			window-decoration = "server";
+
+			background-opacity = 0.85;
+			background-blur = true;
 
 			cursor-style = "block";
 			shell-integration-features = "no-cursor";
