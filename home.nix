@@ -17,6 +17,7 @@
 
 		ytfzf
 		vlc
+		fastfetch
 
     # ─────────────────────────────────────────────
     # Core CLI
@@ -119,6 +120,10 @@
 		inputs.zen-browser.packages."${pkgs.system}".default
 
   ];
+
+	imports = [
+		inputs.zen-browser.homeModules.default
+	];
 
   programs.git = {
     enable = true;
