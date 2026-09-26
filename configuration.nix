@@ -118,6 +118,8 @@
     enable32Bit = true;
   };
 
+	hardware.bluetooth.enable = true;
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
