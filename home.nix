@@ -247,6 +247,31 @@
       		vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
       		-- ─────────────────────────────────────────────
+      		-- Treesitter (syntax highlighting)
+      		-- ─────────────────────────────────────────────
+					vim.pack.add({
+						"https://github.com/nvim-tressitter/nvim-treesitter"
+					})
+
+					require("nvim-treesitter").install({
+						"c",
+						"cpp",
+						"lua",
+						"python",
+						"javascript",
+						"typescript",
+						"rust",
+						"go",
+						"java"
+					})
+
+					vim.api.nvim_create_autocmd("FileType, {
+						callback = function(args)
+							pcall(vim.treesitter.start, args.buf)
+						end
+					})
+
+      		-- ─────────────────────────────────────────────
       		-- LSP
       		-- ─────────────────────────────────────────────
       		vim.api.nvim_create_autocmd("LspAttach", {
