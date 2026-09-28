@@ -118,6 +118,7 @@
 
     librewolf
 		inputs.zen-browser.packages."${pkgs.system}".default
+		kdePackages.qtwebengine
 
   ];
 
@@ -267,16 +268,19 @@
       		})
 
       		-- Native LSP config
+					-- Lua
       		vim.lsp.config("lua_ls", {
       			cmd = { "lua-language-server" },
       			filetypes = { "lua" },
       		})
-
+					
+					-- Nix
       		vim.lsp.config("nil_ls", {
       			cmd = { "nil" },
       			filetypes = { "nix" },
       		})
 
+					-- TypeScript
       		vim.lsp.config("ts_ls", {
       			cmd = { "typescript-language-server", "--stdio" },
       			filetypes = {
@@ -287,7 +291,19 @@
       			},
       		})
 
-      		vim.lsp.enable({ "lua_ls", "nil_ls", "ts_ls" })
+					-- Java
+					vim.lsp.config("jdtls", {
+						cmd = { "jdtls" },
+						root_markers = {
+							"pom.xml",
+							"build.gradle",
+							"settings.gradle",
+							".git"
+						}
+					})
+					
+
+      		vim.lsp.enable({ "lua_ls", "nil_ls", "ts_ls", "java" })
 
       		-- ─────────────────────────────────────────────
       		-- Diagnostics
