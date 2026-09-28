@@ -250,7 +250,7 @@
       		-- Treesitter (syntax highlighting)
       		-- ─────────────────────────────────────────────
 					vim.pack.add({
-						"https://github.com/nvim-tressitter/nvim-treesitter"
+						"https://github.com/nvim-treesitter/nvim-treesitter"
 					})
 
 					require("nvim-treesitter").install({
@@ -265,7 +265,7 @@
 						"java"
 					})
 
-					vim.api.nvim_create_autocmd("FileType, {
+					vim.api.nvim_create_autocmd("FileType", {
 						callback = function(args)
 							pcall(vim.treesitter.start, args.buf)
 						end
