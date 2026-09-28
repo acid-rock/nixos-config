@@ -303,7 +303,7 @@
 					})
 					
 
-      		vim.lsp.enable({ "lua_ls", "nil_ls", "ts_ls", "java" })
+      		vim.lsp.enable({ "lua_ls", "nil_ls", "ts_ls", "jdtls" })
 
       		-- ─────────────────────────────────────────────
       		-- Diagnostics
